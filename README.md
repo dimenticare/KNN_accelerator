@@ -1,11 +1,12 @@
 # KNN_accelerator
 
-distance.v
+### distance.v
 目的：计算train与test之间的距离
 1.将test和train64位输入切割为8个8位（8*8）的特征输入
 2.将各项特征输入进行差值计算
 3.将差值进行平方
 4.将所有平方数进行加和输出
+```verilog
     //control
     input wire distance_valid,			//开始信号
     //testdata
@@ -15,8 +16,8 @@ distance.v
     
     //topk
     output reg [18:0] distance_result,	//两个数据之间的距离
-
-///////////////////////////////////////////////////////////////////////////////////////////////
+`
+---
 
 topk.v
 
