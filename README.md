@@ -23,16 +23,23 @@
     output reg [18:0] distance_result,	//两个数据之间的距离
 ```
 ---
+### topk.v
 
-topk.v
+#### topkv2.v
 
-topkv2.v
 目的：将距离进行排序并输出最近的前K个数据的距离与label（K=3，1位输出）
+
 1.将内部寄存器设置为最大值并与输入的距离进行比较
+
 2.从最小的dis0开始比较
+
 3.1若输入更小，则记录dis0和label0为输入的数据，并将原先数据传递至下一个寄存器
+
 3.2若输入更大，则往较大的dis1进行比较；直到比较到dis2完成K=3的比较
+
 4.输出距离最近的五个距离所对应的label
+
+```verilog
     //control
     input wire topk_clear,				//清除，便于重复检测数据
     input wire topk_valid,				//valid=1时，当前distance和label为一组新的有效输入
@@ -45,15 +52,24 @@ topkv2.v
     output reg label0,			//最小距离的label
     output reg label1,			//第二小距离的label
     output reg label2			//第三小距离的label
-notes：更新将K调整（5 -> 3），将label调整（2位 -> 1位），将距离输出删除并更改label的数目
+    //notes：更新将K调整（5 -> 3），将label调整（2位 -> 1位），将距离输出删除并更改label的数目
+```
 
-topkv1.v
+#### topkv1.v
+
 目的：将距离进行排序并输出最近的前K个数据的距离与label（K=5，2位输出）
+
 1.将内部寄存器设置为最大值并与输入的距离进行比较
+
 2.从最小的dis0开始比较
+
 3.1若输入更小，则记录dis0和label0为输入的数据，并将原先数据传递至下一个寄存器
+
 3.2若输入更大，则往较大的dis1进行比较；直到比较到dis4完成K=5的比较
+
 4.输出距离最近的五个距离及其对应的label
+
+```verilog
     input wire clk,				//时钟
     input wire rst_n,				//复位
     input wire clear,				//清除，便于重复检测数据
@@ -72,12 +88,15 @@ topkv1.v
     output reg [1:0] label2,		//第三小距离的label
     output reg [1:0] label3,		//第四小距离的label
     output reg [1:0] label4		//第五小距离的label
+```
+---
+### voting.v
 
-///////////////////////////////////////////////////////////////////////////////////////////////
-
-voting.v
 目的：决定测试目标的label的预测结果为0or1
+
 少数决定多数，通过列表确定逻辑式
+
+```verilog
     //topk
     input wire label0,		//标签1
     input wire label1,		//标签2
@@ -87,12 +106,16 @@ voting.v
 
     //wrapper
     output wire prediction	//预测结果
+```
+---
 
-///////////////////////////////////////////////////////////////////////////////////////////////
+### traindata.v
 
-traindata.v
 目的1：存储traindata数据于寄存器		IDLE->LOAD->IDLE
+
 目的2：调用寄存器中的traindata参与运算	IDLE->READ->IDLE
+
+```verilog
     //wrapper
     input wire data_valid,
     input wire [31:0] data_in,
@@ -108,11 +131,14 @@ traindata.v
     output reg [63:0] train_data,
     //topk
     output reg train_label
+```
+---
 
+### testdata.v
 
-
-testdata.v
 目的：读取测试的数据内容并存储到寄存器中参与后续运算
+
+```verilog
     //wrapper
     input wire data_valid,
     input wire [31:0] data_in,
@@ -123,11 +149,14 @@ testdata.v
     output reg load_test_done,
     //distance
     output reg [63:0] test_data
+```
+---
 
-///////////////////////////////////////////////////////////////////////////////////////////////
+### control.v
 
-control.v
 目的：加载traindata和针对testdata的计算，两种功能设计不同的状态机
+
+```verilog
     //FSM1:
     //IDLE -> LOAD_TRAIN -> IDLE
     
@@ -162,5 +191,6 @@ control.v
     //voting
     output reg  voting_valid,
     //wrapper
+```
     output reg  busy,
     output reg  prediction_valid
