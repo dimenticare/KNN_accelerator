@@ -15,7 +15,7 @@ module testdata(
     output reg [63:0] test_data
 );
 
-    //Çø·ÖÊý¾Ý¸ßµÍÎ»£º0µÍ1¸ß
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¸ßµï¿½Î»ï¿½ï¿½0ï¿½ï¿½1ï¿½ï¿½
     reg half_word;
 
     always @(posedge clk or negedge rst_n) begin
@@ -25,9 +25,9 @@ module testdata(
             load_test_done <= 1'b0;
         end
         else begin
-            //½öÊä³öÒ»ÖÜÆÚÍê³É½á¹û
+            //ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½
             load_test_done <= 1'b0;
-            //½ÓÊÕµ½¼ÓÔØÖ¸ÁîÇÒÊý¾ÝÓÐÐ§Ê±²Å¿ªÊ¼¼ÓÔØÊý¾Ý
+            //ï¿½ï¿½ï¿½Õµï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§Ê±ï¿½Å¿ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             if (load_test && data_valid) begin
                 if (!half_word) begin
                     test_data[31:0] <= data_in;
@@ -36,11 +36,11 @@ module testdata(
                 else begin
                     test_data[63:32] <= data_in;
                     half_word <= 1'b0;
-                    //Íê³ÉtestdataÔØÈë
+                    //ï¿½ï¿½ï¿½testdataï¿½ï¿½ï¿½ï¿½
                     load_test_done <= 1'b1;
                 end
             end
-            //±£Ö¤ÔÚÎÞ¼ÓÔØÖ¸ÁîÏÂ´ÓµÍÎ»¿ªÊ¼¼ÓÔØtestdata
+            //ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½Þ¼ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Â´Óµï¿½Î»ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½testdata
             if (!load_test) begin
                 half_word <= 1'b0;
             end
