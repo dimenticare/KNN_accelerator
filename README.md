@@ -41,17 +41,17 @@
 
 ```verilog
     //control
-    input wire topk_clear,				//清除，便于重复检测数据
-    input wire topk_valid,				//valid=1时，当前distance和label为一组新的有效输入
+    input wire topk_clear,					//清除，便于重复检测数据
+    input wire topk_valid,					//valid=1时，当前distance和label为一组新的有效输入
     //distance
     input wire [18:0] distance_result,		//输入的距离
     //traindata
-    input wire train_label,				//输入的label，（1位，0-1）
+    input wire train_label,					//输入的label，（1位，0-1）
 
     //voting
-    output reg label0,			//最小距离的label
-    output reg label1,			//第二小距离的label
-    output reg label2			//第三小距离的label
+    output reg label0,						//最小距离的label
+    output reg label1,						//第二小距离的label
+    output reg label2						//第三小距离的label
     //notes：更新将K调整（5 -> 3），将label调整（2位 -> 1位），将距离输出删除并更改label的数目
 ```
 
@@ -71,9 +71,9 @@
 
 ```verilog
     input wire clk,				//时钟
-    input wire rst_n,				//复位
-    input wire clear,				//清除，便于重复检测数据
-    input wire valid,				//valid=1时，当前distance和label为一组新的有效输入
+    input wire rst_n,			//复位
+    input wire clear,			//清除，便于重复检测数据
+    input wire valid,			//valid=1时，当前distance和label为一组新的有效输入
     input wire [18:0] distance,	//输入的距离
     input wire [1:0] label,		//输入的label，（2位，0-3）
 
@@ -83,10 +83,10 @@
     output reg [18:0] dis3,		//第四小的距离
     output reg [18:0] dis4,		//第五小的距离
 
-    output reg [1:0] label0,		//最小距离的label
-    output reg [1:0] label1,		//第二小距离的label
-    output reg [1:0] label2,		//第三小距离的label
-    output reg [1:0] label3,		//第四小距离的label
+    output reg [1:0] label0,	//最小距离的label
+    output reg [1:0] label1,	//第二小距离的label
+    output reg [1:0] label2,	//第三小距离的label
+    output reg [1:0] label3,	//第四小距离的label
     output reg [1:0] label4		//第五小距离的label
 ```
 ---
