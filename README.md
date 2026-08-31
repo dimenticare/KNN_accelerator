@@ -166,7 +166,8 @@
     //(train_count < 199) -> DISTANCE -> (repeat)
     //(train_count = 199) -> VOTE -> 
     //DONE -> IDLE
-
+```
+```verilog
     input  wire clk,
     input  wire rst_n,
     //wrapper
