@@ -1,4 +1,4 @@
-# KNN_accelerator
+# KNN_v1
 
 ### distance.v
 目的：计算train与test之间的距离
