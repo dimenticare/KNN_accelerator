@@ -1,0 +1,55 @@
+Best_K							3
+Best_Average_Accuracy_Percent		98.1
+Overall_Accuracy_Percent			98.1
+TN								154
+FP								6
+FN								13
+TP								827
+Recall_Normal_Percent				96.25
+Recall_Abnormal_Percent			98.45238095
+
+
+
+Dataset Source
+https://www.kaggle.com/datasets/ludocielbeckett/health-risk-prediction-anonymized-real-data
+
+
+
+Description
+
+This dataset contains real-world patient health data that has been carefully cleaned and anonymized to protect privacy. It provides vital signs and clinical parameters for 1,000 patients, along with their corresponding health risk levels (Normal, Low, Medium, High).
+
+The dataset is designed for machine learning, data science, and healthcare analytics research. It can be used to build predictive models that assist healthcare professionals in early detection of high-risk patients and better medical decision-making.
+
+Columns:
+
+Patient_ID – Unique anonymized patient identifier.
+
+Respiratory_Rate – Breaths per minute.
+
+Oxygen_Saturation – Oxygen saturation level (%) in the blood.
+
+O2_Scale – Oxygen therapy scale used.
+
+Systolic_BP – Systolic blood pressure (mmHg).
+
+Heart_Rate – Heart beats per minute.
+
+Temperature – Body temperature (°C).
+
+Consciousness – Level of consciousness (A = Alert, P = Pain response, C = Confusion, V = Verbal, U = Unresponsive). 
+ACVPU:https://ckm.openehr.org/ckm/archetypes/1013.1.3317
+
+On_Oxygen – Whether the patient is on supplemental oxygen (0 = No, 1 = Yes).
+
+Risk_Level – Target variable (Normal, Low, Medium, High).
+
+Potential Use Cases:
+
+Developing machine learning models for risk classification.
+
+Identifying the most critical features affecting patient risk levels.
+
+Healthcare simulations and academic research projects.
+
+Building clinical decision support systems.

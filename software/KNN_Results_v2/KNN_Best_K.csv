@@ -1,0 +1,12 @@
+Best_K,Best_Average_Accuracy_Percent,Overall_Accuracy_Percent,TN,FP,FN,TP,Recall_Normal_Percent,Recall_Abnormal_Percent
+3,98.1,98.1,154,6,13,827,96.25,98.45238095
+,,,,,,,,
+Best_K,3,,,,,,,
+Best_Average_Accuracy_Percent,98.1,,,,,,,
+Overall_Accuracy_Percent,98.1,,,,,,,
+TN,154,,,,,,,
+FP,6,,,,,,,
+FN,13,,,,,,,
+TP,827,,,,,,,
+Recall_Normal_Percent,96.25,,,,,,,
+Recall_Abnormal_Percent,98.45238095,,,,,,,
